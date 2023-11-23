@@ -3,6 +3,9 @@ import React, { useState, useEffect } from 'react';
 interface Country {
   alpha3Code: string;
   name: string;
+  flag: string;
+  capital: string;
+  population: number;
   borders: string[];
 }
 
@@ -35,7 +38,10 @@ const CountryInfo: React.FC<CountryInfoProps> = ({ selectedCountry }) => {
       {selectedCountry ? (
         countryInfo ? (
           <div>
-            <h3>{countryInfo.name}</h3>
+
+            <p><h3>{countryInfo.name}</h3> <img src={countryInfo.flag} alt={`Флаг ${countryInfo.name}`} style={{ maxWidth: '100px' }} /></p>
+            <p>Столица: {countryInfo.capital}</p>
+            <p>Население: {countryInfo.population}</p>
             <p>Граничит с: {countryInfo.borders.join(', ')}</p>
           </div>
         ) : (
