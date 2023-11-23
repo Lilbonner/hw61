@@ -27,8 +27,8 @@ const CountryList: React.FC<CountryListProps> = ({ onSelectCountry }) => {
   }, []);
 
   return (
-    <div>
-      <h2>Выберите страну</h2>
+    <div className="List">
+      <h2>Select country:</h2>
       <ul>
         {countries.map(country => (
           <li

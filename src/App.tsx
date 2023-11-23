@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import CountryList from '../src/Components/List/List';
 import CountryInfo from '../src/Components/Info/Info';
+import "./App.css";
 
 const App: React.FC = () => {
   const [selectedCountry, setSelectedCountry] = useState<string | null>(null);
