@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react';
 interface Country {
   alpha3Code: string;
   name: string;
-  flag: string;
-  capital: string;
-  population: number;
   borders: string[];
+  population: number;
+  capital: string;
+  flag: string;
 }
 
 interface CountryInfoProps {
@@ -38,11 +38,17 @@ const CountryInfo: React.FC<CountryInfoProps> = ({ selectedCountry }) => {
       {selectedCountry ? (
         countryInfo ? (
           <div>
-
-            <p><h3>{countryInfo.name}</h3> <img src={countryInfo.flag} alt={`Флаг ${countryInfo.name}`} style={{ maxWidth: '100px' }} /></p>
+            <h3>{countryInfo.name}<p><img src={countryInfo.flag} alt={`Флаг ${countryInfo.name}`} style={{ maxWidth: '200px' }} /></p></h3>
             <p>Столица: {countryInfo.capital}</p>
             <p>Население: {countryInfo.population}</p>
-            <p>Граничит с: {countryInfo.borders.join(', ')}</p>
+            <div>
+              <p>Граничит с:</p>
+              <ul>
+                {countryInfo.borders.map((border, index) => (
+                  <li key={index}>{border}</li>
+                ))}
+              </ul>
+            </div>
           </div>
         ) : (
           <p>Загрузка информации...</p>
